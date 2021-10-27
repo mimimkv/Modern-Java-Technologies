@@ -1,4 +1,4 @@
-package lab1;
+package problem2;
 
 public class WeatherForecaster {
     public static int[] getWarmerIn(int[] temperatures){
@@ -44,3 +44,4 @@ public class WeatherForecaster {
         }
     }
 }
+

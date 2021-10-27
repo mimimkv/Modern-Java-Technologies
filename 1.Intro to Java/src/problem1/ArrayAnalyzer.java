@@ -1,4 +1,4 @@
-package lab1;
+package problem1;
 
 public class ArrayAnalyzer {
     public static boolean isMountainArray(int[] array){

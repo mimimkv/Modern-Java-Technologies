@@ -1,4 +1,4 @@
-package lab1;
+package problem3;
 
 public class PathUtils {
     public static String getCanonicalPath(String path) {
