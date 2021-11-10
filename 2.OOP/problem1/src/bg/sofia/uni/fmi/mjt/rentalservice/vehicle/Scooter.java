@@ -4,7 +4,7 @@ import bg.sofia.uni.fmi.mjt.rentalservice.location.Location;
 
 public class Scooter extends VehicleBase {
     private final double pricePerMinute = 0.30;
-    private final String TYPE = "Scooter";
+    private final String TYPE = "SCOOTER";
 
     public Scooter(String id, Location location) {
         super(id, location);

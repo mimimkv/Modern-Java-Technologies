@@ -4,7 +4,7 @@ import bg.sofia.uni.fmi.mjt.rentalservice.location.Location;
 
 public class Bicycle extends VehicleBase {
     private final double pricePerMinute = 0.20;
-    private final String TYPE = "Bicycle";
+    private final String TYPE = "BICYCLE";
 
     public Bicycle(String id, Location location) {
         super(id, location);

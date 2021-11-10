@@ -1,8 +1,10 @@
 package bg.sofia.uni.fmi.mjt.rentalservice.vehicle;
 
 import bg.sofia.uni.fmi.mjt.rentalservice.location.Location;
+import com.sun.nio.sctp.NotificationHandler;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public abstract class VehicleBase implements Vehicle {
 
@@ -27,7 +29,7 @@ public abstract class VehicleBase implements Vehicle {
 
     @Override
     public LocalDateTime getEndOfReservationPeriod() {
-        return endOfReservationPeriod == null ? LocalDateTime.now().minusMinutes(10) :endOfReservationPeriod;
+        return endOfReservationPeriod == null ? LocalDateTime.now().minusMinutes(1) :endOfReservationPeriod;
     }
 
     @Override
@@ -39,5 +41,16 @@ public abstract class VehicleBase implements Vehicle {
 
     public abstract String getType();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VehicleBase other = (VehicleBase) o;
+        return getId().equals(other.getId());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

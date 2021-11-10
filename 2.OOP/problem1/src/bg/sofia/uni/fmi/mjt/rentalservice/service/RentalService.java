@@ -16,7 +16,7 @@ public class RentalService implements RentalServiceAPI {
     @Override
     public double rentUntil(Vehicle vehicle, LocalDateTime until) {
 
-        if (!isValidVehicle(vehicle) || !isAvailable(vehicle)) {
+        if (!isValidVehicle(vehicle) || !isAvailable(vehicle) || until.isBefore(LocalDateTime.now())) {
             return -1.0;
         }
 
@@ -27,23 +27,28 @@ public class RentalService implements RentalServiceAPI {
 
     @Override
     public Vehicle findNearestAvailableVehicleInRadius(String type, Location location, double maxDistance) {
-        int indexMinDistance = -1;
         double minDistance = maxDistance;
 
-        for (int i = 0; i < vehicles.length; ++i) {
-            if (indexMinDistance == -1 ||
-                location.getDistance(vehicles[i].getLocation()) < minDistance) {
-                indexMinDistance = i;
-                minDistance = location.getDistance(vehicles[i].getLocation());
+        Vehicle nearestVehicle = null;
+        for (Vehicle v : vehicles) {
+            double currDistance = location.getDistance(v.getLocation());
+            if (v.getType().equals(type) && isAvailable(v) &&
+                    currDistance < minDistance) {
+                nearestVehicle = v;
+                minDistance = currDistance;
             }
         }
 
-        return indexMinDistance == -1? null : vehicles[indexMinDistance];
+        return nearestVehicle;
     }
 
     private boolean isValidVehicle(Vehicle vehicle) {
-        for (int i = 0; i < vehicles.length; ++i) {
-            if (vehicle.getId().equals(vehicles[i].getId())) {
+        if (vehicle == null) {
+            return false;
+        }
+
+        for (Vehicle v : vehicles) {
+            if (v.equals(vehicle)) {
                 return true;
             }
         }

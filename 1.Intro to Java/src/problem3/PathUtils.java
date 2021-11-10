@@ -12,7 +12,7 @@ public class PathUtils {
             } else if (tokens[i].equals("..")) {
                 ++counter;
             } else if (counter == 0) {
-                canonicalPath.insert(0,"/" + tokens[i]);
+                canonicalPath.insert(0, "/" + tokens[i]);
             } else {
                 --counter;
             }
