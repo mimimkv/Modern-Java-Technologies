@@ -29,7 +29,7 @@ public abstract class VehicleBase implements Vehicle {
 
     @Override
     public LocalDateTime getEndOfReservationPeriod() {
-        return endOfReservationPeriod == null ? LocalDateTime.now().minusMinutes(1) :endOfReservationPeriod;
+        return endOfReservationPeriod == null ? LocalDateTime.now().minusMinutes(1) : endOfReservationPeriod;
     }
 
     @Override

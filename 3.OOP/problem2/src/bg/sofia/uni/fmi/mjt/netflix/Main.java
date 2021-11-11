@@ -21,6 +21,7 @@ public class Main {
         Account account2 = new Account("gosho", LocalDateTime.now().minusYears(10));
         Account account3 = new Account("pencho", LocalDateTime.now().minusYears(13));
         Account account4 = new Account("randomUser", LocalDateTime.now().minusYears(15));
+        Account account5 = new Account("ivan", LocalDateTime.of(2012, 9, 30, 12, 45));
 
         Account[] accounts = new Account[]{account1, account2, account3};
 

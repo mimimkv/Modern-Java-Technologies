@@ -38,17 +38,17 @@ public class Spotify implements StreamingService {
 
     @Override
     public void like(Account account, String title) throws AccountNotFoundException, PlayableNotFoundException, StreamingServiceException {
-        Playable playable = findByTitle(title); // this throws PlayableNotFoundExc & IllegalArgExc
-
-        if (account == null) {
-            throw new IllegalArgumentException("Account cannot be null!");
+        if (account == null || title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Arguments cannot be null or blank!");
         }
 
         if (!accountExists(account)) {
             throw new AccountNotFoundException("The account is not registered!");
         }
 
+        Playable playable = findByTitle(title); // this throws exception
         Playlist likedContentLibrary = account.getLibrary().getLiked();
+
         try {
             likedContentLibrary.add(playable);
         } catch (PlaylistCapacityExceededException e) {
@@ -65,7 +65,7 @@ public class Spotify implements StreamingService {
         }
 
         for (Playable p : playableContent) {
-            if (title.equals(p.getTitle())) {
+            if (p != null && title.equals(p.getTitle())) {
                 return p;
             }
         }

@@ -33,8 +33,8 @@ public class Main {
         double priceForBicycle2 = rentalService.rentUntil(bicycle1, LocalDateTime.now().plusMinutes(5));
         double priceForBicycle3 = rentalService.rentUntil(bicycle3, LocalDateTime.now().plusMinutes(25));
 
-        System.out.printf("%.2f\n", priceForCar); // 10
-        System.out.printf("%.2f\n", priceForBicycle); // 4
+        System.out.printf("%.2f\n", priceForCar); // 10.50
+        System.out.printf("%.2f\n", priceForBicycle); // 4.20
         System.out.printf("%.2f\n", priceForBicycle2); // -1
         System.out.printf("%.2f\n", priceForBicycle3); // -1
 
@@ -54,15 +54,15 @@ public class Main {
         }
 
         Vehicle nearestScooter2 =
-                rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 100.0);
+                rentalService.findNearestAvailableVehicleInRadius("SCOOTER", currentLocation, 50.0);
         System.out.println(nearestScooter2.getId()); // scooter1
 
         Vehicle nearestBicycle =
                 rentalService.findNearestAvailableVehicleInRadius("BICYCLE", currentLocation, 10.0);
         System.out.println(nearestBicycle.getId()); // bicycle2
 
-        double priceForScooter = rentalService.rentUntil(scooter3, LocalDateTime.now().plusMinutes(5));
-        System.out.println(priceForScooter);
+        //double priceForScooter = rentalService.rentUntil(scooter3, LocalDateTime.now().plusMinutes(5));
+        //System.out.println(priceForScooter);
 
         double priceForCar2 = rentalService.rentUntil(car2, LocalDateTime.now().plusMinutes(3));
         System.out.println(priceForCar2);

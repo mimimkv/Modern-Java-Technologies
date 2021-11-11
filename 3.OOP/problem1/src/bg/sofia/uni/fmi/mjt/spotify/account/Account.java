@@ -35,6 +35,7 @@ public abstract class Account {
     public void listen(Playable playable) {
         ++countPlayedContent;
         totalListenTime += playable.getDuration();
+        playable.play();
     }
 
     /**

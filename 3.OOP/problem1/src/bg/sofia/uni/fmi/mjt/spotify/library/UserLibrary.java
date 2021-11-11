@@ -8,7 +8,7 @@ import bg.sofia.uni.fmi.mjt.spotify.playlist.UserPlaylist;
 
 public class UserLibrary implements Library {
     private static final int LIBRARY_CAPACITY = 21;
-    private static final String DEFAULT_LIBRARY = "Liked content";
+    private static final String DEFAULT_LIBRARY = "Liked Content";
     private int size;
     private Playlist[] playlists;
 
@@ -35,8 +35,7 @@ public class UserLibrary implements Library {
         }
 
         if (size < 2) {
-            throw new EmptyLibraryException(
-                    String.format("Library is empty!"));
+            throw new EmptyLibraryException("Library is empty!");
         }
 
         int indexOfPlaylist = findPlaylist(name);

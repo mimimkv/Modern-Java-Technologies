@@ -22,7 +22,7 @@ public class RentalService implements RentalServiceAPI {
 
         vehicle.setEndOfReservationPeriod(until);
         long minutes = Duration.between(LocalDateTime.now(), until).toMinutes();
-        return minutes * vehicle.getPricePerMinute();
+        return (minutes + 1) * vehicle.getPricePerMinute();
     }
 
     @Override
