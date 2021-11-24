@@ -7,7 +7,7 @@ public abstract class PlayableBase implements Playable {
     protected final int year;
     protected final double duration;
 
-    public PlayableBase(String title, String artist, int year, double duration) {
+    protected PlayableBase(String title, String artist, int year, double duration) {
         this.title = title;
         this.artist = artist;
         this.year = year;

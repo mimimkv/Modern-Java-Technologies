@@ -61,10 +61,10 @@ public class Main {
                 rentalService.findNearestAvailableVehicleInRadius("BICYCLE", currentLocation, 10.0);
         System.out.println(nearestBicycle.getId()); // bicycle2
 
-        //double priceForScooter = rentalService.rentUntil(scooter3, LocalDateTime.now().plusMinutes(5));
-        //System.out.println(priceForScooter);
+        double priceForScooter = rentalService.rentUntil(scooter3, LocalDateTime.now().plusMinutes(5));
+        System.out.printf("%.2f\n", priceForScooter); // 1.80
 
         double priceForCar2 = rentalService.rentUntil(car2, LocalDateTime.now().plusMinutes(3));
-        System.out.println(priceForCar2);
+        System.out.printf("%.2f\n", priceForCar2); // 2.00
     }
 }
