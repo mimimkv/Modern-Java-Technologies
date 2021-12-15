@@ -65,5 +65,4 @@ public abstract class CacheBase<K, V> implements Cache<K, V> {
 
     protected abstract V put(K k, V v);
 
-    //public abstract int size(); // todo ??? ask why it was not here
 }
