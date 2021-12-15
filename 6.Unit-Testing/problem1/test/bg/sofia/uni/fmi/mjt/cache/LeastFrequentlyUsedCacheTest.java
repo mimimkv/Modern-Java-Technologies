@@ -136,7 +136,7 @@ class LeastFrequentlyUsedCacheTest {
 
     @Test
     public void testValuesNoValuesInCache() {
-        assertEquals(Collections.emptyList(), cache.values(),
+        assertEquals(Collections.emptyList(), cache.values().stream().toList(),
                 "values should return an empty list when there is nothing in the cache");
     }
 
@@ -166,28 +166,4 @@ class LeastFrequentlyUsedCacheTest {
         assertIterableEquals(expected, actual);
     }
 
-   /*@Test void testSomething() throws ItemNotFound {
-        when(storage.retrieve(1)).thenReturn("one");
-        when(storage.retrieve(2)).thenReturn("two");
-        when(storage.retrieve(3)).thenReturn("three");
-        when(storage.retrieve(4)).thenReturn("four");
-        when(storage.retrieve(5)).thenReturn("five");
-
-        assertEquals("two", cache.get(2));
-        assertEquals("one", cache.get(1));
-        assertEquals("three", cache.get(3));
-        assertEquals("four", cache.get(4));
-        assertEquals("five", cache.get(5));
-        cache.get(1);
-        cache.put(2, "TWO");
-
-        assertTrue(cache.containsKey(5));
-        assertTrue(cache.containsKey(1));
-        assertTrue(cache.containsKey(2));
-        assertTrue(cache.containsKey(4));
-        assertTrue(cache.containsKey(3));
-
-        List<String> list = List.of("TWO", "three", "four", "five");
-        assertIterableEquals(list, cache.values());
-    }*/
 }

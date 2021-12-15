@@ -3,6 +3,7 @@ package bg.sofia.uni.fmi.mjt.cache;
 import bg.sofia.uni.fmi.mjt.cache.storage.Storage;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class LeastFrequentlyUsedCache<K, V> extends CacheBase<K, V> {
 
     @Override
     public Collection<V> values() {
-        return List.copyOf(this.cache.values());
+        return Collections.unmodifiableCollection(this.cache.values());
     }
 
     @Override
