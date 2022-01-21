@@ -14,10 +14,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.when;
 
@@ -134,7 +132,7 @@ class LeastRecentlyUsedCacheTest {
 
     @Test
     public void testValuesNoValuesInCache() {
-        assertEquals(Collections.emptyList(), cache.values().stream().toList(),
+        assertIterableEquals(Collections.emptyList(), cache.values(),
                 "values should return an empty list when there is nothing in the cache");
     }
 
